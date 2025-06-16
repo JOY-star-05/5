@@ -1,0 +1,12 @@
+import csv
+import urllib.request
+
+url = 'https://quality.data.gov.tw/dq_download_csv.php?nid=32957&md5_url=8d0cb82d63dcb16e5e3b296d2d06cfda'
+webpage = urllib.request.urlopen(url)  #開啟網頁
+data = csv.reader(webpage.read().decode('utf-8').splitlines())  #讀取資料到data陣列中
+a = input("請輸入學校名稱:")
+for i in data:
+  if a in i[2]:
+    print('郵遞區號->',i[4],'地址',i[5],'市話',i[6])
+input("按下 Enter 鍵結束程式...")
+請幫我將程式碼優化，並且可重複執行
